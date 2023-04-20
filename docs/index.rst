@@ -6,6 +6,8 @@
 Welcome to tutorial1's documentation!
 =====================================
 
+Explore Sphinxy's documentation.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
