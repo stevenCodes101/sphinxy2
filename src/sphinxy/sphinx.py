@@ -17,16 +17,37 @@ class Sphinx:
         )
 
     def introduce(self) -> str:
+        """Inroduction function
+
+        Returns:
+            str: greeting string 
+        """
         return (
             f"Greetings, mortals. I am {self._name}. I have guarded the city of Thebes"
             "for centuries and posed riddles to those who dared to approach me."
         )
 
     def update_riddle(self, riddle: Riddle) -> str:
+        """Function that updates riddle object
+
+        Args:
+            riddle (Riddle): _description_
+
+        Returns:
+            str: _description_
+        """
         self._riddle = riddle
         return "I have updated my riddle. Are you ready to solve it?"
 
     def pose_riddle(self, include_hint: bool = False) -> tuple[str, str | None]:
+        """Provide hint function for riddle
+
+        Args:
+            include_hint (bool, optional): _description_. Defaults to False.
+
+        Returns:
+            tuple[str, str | None]: _description_
+        """
         hint = (
             f"Hint: The answer starts with the letter '{self._riddle.get_hint()}'."
             if include_hint
@@ -36,6 +57,19 @@ class Sphinx:
 
     def check_riddle_answer(self, answer: str, return_hint: bool = False) -> str:
         if self._riddle.check_answer(answer):
+            """Evaluates the given answer to the riddle.
+
+        Args:
+            answer (str): The given answer to the riddle.
+            return_hint (bool, optional): Controls whether a hint for the riddle should
+                be returned. Defaults to False.
+
+        Raises:
+            IncorrectAnswer: Exception for incorrect answer.
+
+        Returns:
+            str: The result of the evaluation of the answer.
+        """
             return "Your answer was correct. You may pass."
         elif return_hint:
             return (
